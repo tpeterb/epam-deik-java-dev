@@ -19,6 +19,7 @@ import java.util.Optional;
 public class MovieCommand {
 
     private final MovieService movieService;
+
     private final UserService userService;
 
     @ShellMethod(key = "create movie")
@@ -49,7 +50,7 @@ public class MovieCommand {
         if (movies.isEmpty()) {
             return "There are no movies at the moment";
         }
-        return movies.toString();
+        return convertMovieListIntoOutputForm(movies);
     }
 
     private Availability isAvailable() {
@@ -58,6 +59,15 @@ public class MovieCommand {
             return Availability.available();
         }
         return Availability.unavailable("You are not an admin!");
+    }
+
+    private String convertMovieListIntoOutputForm(List<MovieDto> movies) {
+        String outputString = "";
+        for (var movie : movies) {
+            outputString += (movie.toString() + "\n");
+        }
+        outputString = outputString.trim();
+        return outputString;
     }
 
 }

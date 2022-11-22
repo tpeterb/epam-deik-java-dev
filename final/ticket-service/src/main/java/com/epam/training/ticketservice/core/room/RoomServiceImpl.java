@@ -30,9 +30,11 @@ public class RoomServiceImpl implements RoomService {
     public void updateRoom(RoomDto roomDto) {
         Optional<Room> room = roomRepository.findByName(roomDto.getName());
         if (room.isPresent()) {
-            Room roomValue = room.get();
-            roomValue.setNumberOfRows(roomDto.getNumberOfRows());
-            roomValue.setNumberOfCols(roomDto.getNumberOfCols());
+            Optional<Room> roomToUpdate = roomRepository.findById(room.get().getId());
+            Room roomValueToUpdate = room.get();
+            roomValueToUpdate.setNumberOfRows(roomDto.getNumberOfRows());
+            roomValueToUpdate.setNumberOfCols(roomDto.getNumberOfCols());
+            roomRepository.save(roomValueToUpdate);
         }
     }
 
@@ -49,6 +51,15 @@ public class RoomServiceImpl implements RoomService {
         return roomRepository.findAll().stream()
                 .map(this::convertEntityToDto)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Optional<RoomDto> getRoomByName(String roomName) {
+        Optional<Room> room = roomRepository.findByName(roomName);
+        if (room.isPresent()) {
+            return Optional.of(convertEntityToDto(room.get()));
+        }
+        return Optional.empty();
     }
 
     private RoomDto convertEntityToDto(Room room) {

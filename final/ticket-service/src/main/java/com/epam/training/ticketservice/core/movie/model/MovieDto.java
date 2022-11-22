@@ -13,4 +13,9 @@ public class MovieDto {
 
     private int lengthInMinutes;
 
+    @Override
+    public String toString() {
+        return title + " (" + genre + ", " + lengthInMinutes + " minutes)";
+    }
+
 }

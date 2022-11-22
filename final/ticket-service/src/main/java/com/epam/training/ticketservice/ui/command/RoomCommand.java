@@ -50,7 +50,7 @@ public class RoomCommand {
         if (rooms.isEmpty()) {
             return "There are no rooms at the moment";
         }
-        return rooms.toString();
+        return convertRoomListToOutputForm(rooms);
     }
 
     private Availability isAvailable() {
@@ -59,6 +59,15 @@ public class RoomCommand {
             return Availability.available();
         }
         return Availability.unavailable("You are not an admin!");
+    }
+
+    private String convertRoomListToOutputForm(List<RoomDto> rooms) {
+        String outputString = "";
+        for (var room : rooms) {
+            outputString += room.toString() + "\n";
+        }
+        outputString = outputString.trim();
+        return outputString;
     }
 
 }

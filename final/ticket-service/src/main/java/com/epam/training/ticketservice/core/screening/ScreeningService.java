@@ -2,11 +2,13 @@ package com.epam.training.ticketservice.core.screening;
 
 import com.epam.training.ticketservice.core.screening.model.ScreeningDto;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 public interface ScreeningService {
 
-    void createScreening(ScreeningDto screeningDto);
+    String createScreening(ScreeningDto screeningDto);
 
     void deleteScreening(ScreeningDto screeningDto);
 
@@ -14,6 +16,16 @@ public interface ScreeningService {
 
     List<ScreeningDto> getScreeningListByRoom(String roomName);
 
-    boolean areScreeningsColliding(ScreeningDto screeningDto1, ScreeningDto screeningDto2);
+    Optional<ScreeningDto> getScreeningByMovieTitleAndRoomNameAndStartOfScreening(
+            String movieTitle,
+            String roomName,
+            LocalDateTime startOfScreening);
+
+    boolean areScreeningsColliding(ScreeningDto screeningDto1,
+                                   ScreeningDto screeningDto2);
+
+    boolean isScreeningCollidingWithTenMinutesBreakPeriod(
+            ScreeningDto screeningDtoWithBreakAfter,
+            ScreeningDto screeningDtoWhichMightFallInBreakPeriod);
 
 }

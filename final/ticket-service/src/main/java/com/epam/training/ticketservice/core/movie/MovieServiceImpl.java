@@ -30,9 +30,11 @@ public class MovieServiceImpl implements MovieService {
     public void updateMovie(MovieDto movieDto) {
         Optional<Movie> movie = movieRepository.findByTitle(movieDto.getTitle());
         if (movie.isPresent()) {
-            Movie movieValue = movie.get();
-            movieValue.setGenre(movieDto.getGenre());
-            movieValue.setLengthInMinutes(movieDto.getLengthInMinutes());
+            Optional<Movie> movieToUpdate = movieRepository.findById(movie.get().getId());
+            Movie movieValueToUpdate = movieToUpdate.get();
+            movieValueToUpdate.setGenre(movieDto.getGenre());
+            movieValueToUpdate.setLengthInMinutes(movieDto.getLengthInMinutes());
+            movieRepository.save(movieValueToUpdate);
         }
     }
 
@@ -49,6 +51,15 @@ public class MovieServiceImpl implements MovieService {
         return movieRepository.findAll().stream()
                 .map(this::convertEntityToDto)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Optional<MovieDto> getMovieByTitle(String movieTitle) {
+        Optional<Movie> movie = movieRepository.findByTitle(movieTitle);
+        if (movie.isPresent()) {
+            return Optional.of(convertEntityToDto(movie.get()));
+        }
+        return Optional.empty();
     }
 
 

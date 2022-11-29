@@ -12,7 +12,6 @@ com\epam\training\ticketservice\core\finance\pricecomponent\PriceComponentServic
 com\epam\training\ticketservice\core\movie\MovieService.class
 com\epam\training\ticketservice\core\seat\model\Seat.class
 com\epam\training\ticketservice\core\user\persistence\entity\User.class
-com\epam\training\ticketservice\core\configuration\DatabaseInitializer.class
 com\epam\training\ticketservice\ui\command\BookingCommand.class
 com\epam\training\ticketservice\core\booking\persistence\entity\Booking.class
 com\epam\training\ticketservice\core\movie\persistence\repository\MovieRepository.class
@@ -36,8 +35,10 @@ com\epam\training\ticketservice\core\screening\ScreeningService.class
 com\epam\training\ticketservice\core\booking\model\BookingDto.class
 com\epam\training\ticketservice\ui\command\UserCommand.class
 com\epam\training\ticketservice\ui\command\PriceCommand.class
+com\epam\training\ticketservice\core\configuration\PersistentDatabaseInitializer.class
 com\epam\training\ticketservice\core\finance\PriceCalculatorServiceImpl.class
 com\epam\training\ticketservice\core\booking\BookingService.class
 com\epam\training\ticketservice\core\movie\model\MovieDto.class
 com\epam\training\ticketservice\core\user\persistence\repository\UserRepository.class
 com\epam\training\ticketservice\ui\command\ScreeningCommand.class
+com\epam\training\ticketservice\core\configuration\InMemoryDatabaseInitializer.class

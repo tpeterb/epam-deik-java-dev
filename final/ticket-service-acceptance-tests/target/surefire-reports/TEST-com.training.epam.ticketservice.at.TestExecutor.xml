@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="30" failures="0" name="com.training.epam.ticketservice.at.TestExecutor" time="255.416" errors="0" skipped="0">
+<testsuite tests="30" failures="0" name="com.training.epam.ticketservice.at.TestExecutor" time="370.227" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="java.vm.version" value="17.0.1+12-LTS-39"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17.0.1\bin"/>
-    <property name="maven.multiModuleProjectDirectory" value="O:\Tóth Péter Balázs\epam-deik-java-dev\final"/>
+    <property name="java.vm.version" value="17.0.4.1+1-LTS-2"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17.0.4.1\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\hallgato\epam-deik-java-dev\final"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
@@ -14,81 +14,81 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.script" value=""/>
     <property name="sun.os.patch.level" value=""/>
-    <property name="user.dir" value="O:\Tóth Péter Balázs\epam-deik-java-dev\final"/>
-    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="user.dir" value="C:\Users\hallgato\epam-deik-java-dev\final"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="java.runtime.version" value="17.0.1+12-LTS-39"/>
+    <property name="java.runtime.version" value="17.0.4.1+1-LTS-2"/>
     <property name="os.arch" value="amd64"/>
-    <property name="java.io.tmpdir" value="C:\Users\Home\AppData\Local\Temp\"/>
+    <property name="java.io.tmpdir" value="C:\Users\hallgato\AppData\Local\Temp\"/>
     <property name="line.separator" value="
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Program Files\Maven\bin\m2.conf"/>
+    <property name="classworlds.conf" value="c:\Programok\apache-maven-3.8.4\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1250"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-17.0.1\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Common Files\Adobe\AGL;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files (x86)\National Instruments\Shared\LabVIEW CLI;C:\Program Files\PuTTY\;C:\Program Files\MATLAB\R2020b\bin;C:\Program Files\Java\jdk-17.0.1\bin;C:\Program Files\Maven\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Git\cmd;O:\Program Files (x86)\;C:\Users\Home\AppData\Local\Microsoft\WindowsApps;C:\Users\Home\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Home\.dotnet\tools;C:\Users\Home\AppData\Local\GitHubDesktop\bin;C:\Users\Home\AppData\Roaming\npm;."/>
-    <property name="maven.conf" value="C:\Program Files\Maven/conf"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-17.0.4.1\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Python39\Scripts\;C:\Program Files\Python39\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Python310\Scripts\;C:\Program Files\Python310\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\PuTTY\;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\SASHome\SASFoundation\9.4\core\sasexe;C:\Program Files\SASHome\SASFoundation\9.4\ets\sasexe;C:\Program Files\SASHome\Secure\ccme4;C:\Program Files\SASHome\x86\Secure\ccme4;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Git\cmd;c:\Programok\apache-maven-3.8.4\bin\;C:\Programok\Lingo\;C:\Program Files\Pandoc\;C:\Program Files\MATLAB\R2022a\runtime\win64;C:\Program Files\MATLAB\R2022a\bin;C:\Users\hallgato\AppData\Local\Microsoft\WindowsApps;;C:\Users\hallgato\AppData\Local\Programs\Microsoft VS Code\bin;."/>
+    <property name="maven.conf" value="c:\Programok\apache-maven-3.8.4/conf"/>
     <property name="jdk.debug" value="release"/>
     <property name="java.class.version" value="61.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="10.0"/>
-    <property name="library.jansi.path" value="C:\Program Files\Maven\lib\jansi-native"/>
-    <property name="user.home" value="C:\Users\Home"/>
-    <property name="user.timezone" value="Europe/Budapest"/>
+    <property name="library.jansi.path" value="c:\Programok\apache-maven-3.8.4\lib\jansi-native"/>
+    <property name="user.home" value="C:\Users\hallgato"/>
+    <property name="user.timezone" value="GMT+01:00"/>
     <property name="file.encoding" value="Cp1250"/>
     <property name="java.specification.version" value="17"/>
-    <property name="java.class.path" value="C:\Program Files\Maven\boot\plexus-classworlds-2.6.0.jar"/>
-    <property name="user.name" value="Home"/>
+    <property name="java.class.path" value="c:\Programok\apache-maven-3.8.4\boot\plexus-classworlds-2.6.0.jar"/>
+    <property name="user.name" value="hallgato"/>
     <property name="java.vm.specification.version" value="17"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean verify -P requirements-grade5"/>
-    <property name="java.home" value="C:\Program Files\Java\jdk-17.0.1"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-17.0.4.1"/>
     <property name="user.language" value="hu"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
-    <property name="java.version" value="17.0.1"/>
+    <property name="java.version" value="17.0.4.1"/>
     <property name="native.encoding" value="Cp1250"/>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="sun.stderr.encoding" value="cp852"/>
-    <property name="maven.home" value="C:\Program Files\Maven"/>
+    <property name="maven.home" value="c:\Programok\apache-maven-3.8.4"/>
     <property name="file.separator" value="\"/>
-    <property name="java.version.date" value="2021-10-19"/>
+    <property name="java.version.date" value="2022-08-18"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.stdout.encoding" value="cp852"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="allow creating accounts and logging in" name="the admin account exists by default and can be logged in with the correct password" time="7.739"/>
-  <testcase classname="allow creating accounts and logging in" name="the admin account can be signed out" time="7.42"/>
-  <testcase classname="allow creating accounts and logging in" name="the admin account can not be logged in with incorrect password" time="7.063"/>
-  <testcase classname="allow creating accounts and logging in" name="non-privileged accounts can be created and logged in with the correct password" time="7.133"/>
-  <testcase classname="allow creating accounts and logging in" name="non-privileged accounts can not be logged in with the incorrect password" time="7.403"/>
-  <testcase classname="allow creating accounts and logging in" name="non-privileged accounts can be signed out" time="7.548"/>
-  <testcase classname="allows users to book tickets for screenings, and show booking history" name="an authenticated user can book a ticket for a screening" time="9.931"/>
-  <testcase classname="allows users to book tickets for screenings, and show booking history" name="an authenticated user can not book a ticket if at least one of the seats is already taken" time="10.55"/>
-  <testcase classname="allows users to book tickets for screenings, and show booking history" name="the price of the ticket in the history should not change if pricing changes after the booking" time="11.048"/>
-  <testcase classname="allows creating movie descriptions" name="an admin user can create and list movies" time="7.273"/>
-  <testcase classname="allows creating movie descriptions" name="an admin user can update a movie" time="7.526"/>
-  <testcase classname="allows creating movie descriptions" name="an admin user can delete a movie" time="7.436"/>
-  <testcase classname="allows creating movie descriptions" name="an unauthenticated user can list movies" time="7.483"/>
-  <testcase classname="allows creating movie descriptions" name="an authenticated, non-privileged user can list movies" time="7.958"/>
-  <testcase classname="allows creating pricing components and assigning them to rooms, movies and screenings" name="a default per seat per screening price is defined to be 1500 HUF and is used in the calculation of the price of each seat" time="9.281"/>
-  <testcase classname="allows creating pricing components and assigning them to rooms, movies and screenings" name="the admin user can change the default per seat per screening price" time="9.735"/>
-  <testcase classname="allows creating pricing components and assigning them to rooms, movies and screenings" name="the admin user can create price component and assign it to a movie" time="10.275"/>
-  <testcase classname="allows creating pricing components and assigning them to rooms, movies and screenings" name="the admin user can create price component and assign it to a room" time="10.204"/>
-  <testcase classname="allows creating pricing components and assigning them to rooms, movies and screenings" name="the admin user can create price component and assign it to a screening" time="10.252"/>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can create and list rooms" time="7.205"/>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can update a room" time="7.542"/>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can delete a room" time="7.453"/>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an unauthenticated user can list rooms" time="7.664"/>
-  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an authenticated, non-privileged user can list rooms" time="7.92"/>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can create and query screenings" time="8.941"/>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create overlapping screenings in the same room" time="8.977"/>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create overlapping screenings in different rooms" time="9.038"/>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create screenings during a 10 minute long breaks after another screening in the same room" time="9.138"/>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create screenings even if there is a break after a screening in a different room" time="9.003"/>
-  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can delete screenings" time="9.277"/>
+  <testcase classname="allow creating accounts and logging in" name="the admin account exists by default and can be logged in with the correct password" time="6.486"/>
+  <testcase classname="allow creating accounts and logging in" name="the admin account can be signed out" time="7.344"/>
+  <testcase classname="allow creating accounts and logging in" name="the admin account can not be logged in with incorrect password" time="6.635"/>
+  <testcase classname="allow creating accounts and logging in" name="non-privileged accounts can be created and logged in with the correct password" time="7.703"/>
+  <testcase classname="allow creating accounts and logging in" name="non-privileged accounts can not be logged in with the incorrect password" time="7.349"/>
+  <testcase classname="allow creating accounts and logging in" name="non-privileged accounts can be signed out" time="8.421"/>
+  <testcase classname="allows users to book tickets for screenings, and show booking history" name="an authenticated user can book a ticket for a screening" time="17.486"/>
+  <testcase classname="allows users to book tickets for screenings, and show booking history" name="an authenticated user can not book a ticket if at least one of the seats is already taken" time="20.617"/>
+  <testcase classname="allows users to book tickets for screenings, and show booking history" name="the price of the ticket in the history should not change if pricing changes after the booking" time="22.637"/>
+  <testcase classname="allows creating movie descriptions" name="an admin user can create and list movies" time="7.447"/>
+  <testcase classname="allows creating movie descriptions" name="an admin user can update a movie" time="8.425"/>
+  <testcase classname="allows creating movie descriptions" name="an admin user can delete a movie" time="8.772"/>
+  <testcase classname="allows creating movie descriptions" name="an unauthenticated user can list movies" time="8.614"/>
+  <testcase classname="allows creating movie descriptions" name="an authenticated, non-privileged user can list movies" time="10.538"/>
+  <testcase classname="allows creating pricing components and assigning them to rooms, movies and screenings" name="a default per seat per screening price is defined to be 1500 HUF and is used in the calculation of the price of each seat" time="15.589"/>
+  <testcase classname="allows creating pricing components and assigning them to rooms, movies and screenings" name="the admin user can change the default per seat per screening price" time="17.477"/>
+  <testcase classname="allows creating pricing components and assigning them to rooms, movies and screenings" name="the admin user can create price component and assign it to a movie" time="19.651"/>
+  <testcase classname="allows creating pricing components and assigning them to rooms, movies and screenings" name="the admin user can create price component and assign it to a room" time="19.436"/>
+  <testcase classname="allows creating pricing components and assigning them to rooms, movies and screenings" name="the admin user can create price component and assign it to a screening" time="19.557"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can create and list rooms" time="7.476"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can update a room" time="8.387"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an admin user can delete a room" time="8.419"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an unauthenticated user can list rooms" time="8.449"/>
+  <testcase classname="allow creating, reading, updating and deleting rooms where the screenings will happen" name="an authenticated, non-privileged user can list rooms" time="10.497"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can create and query screenings" time="14.448"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create overlapping screenings in the same room" time="14.457"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create overlapping screenings in different rooms" time="14.488"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can not create screenings during a 10 minute long breaks after another screening in the same room" time="14.512"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin can create screenings even if there is a break after a screening in a different room" time="14.457"/>
+  <testcase classname="allows creating, deleting and listing screenings" name="The admin user can delete screenings" time="14.453"/>
 </testsuite>

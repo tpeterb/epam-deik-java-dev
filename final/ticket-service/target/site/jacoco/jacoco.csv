@@ -8,7 +8,8 @@ ticket-service,com.epam.training.ticketservice.core.user.persistence.entity,User
 ticket-service,com.epam.training.ticketservice.core.movie,MovieServiceImpl,11,107,0,6,4,29,1,9,1,6
 ticket-service,com.epam.training.ticketservice.core.booking.model,BookingDto,37,15,2,0,8,6,2,1,1,1
 ticket-service,com.epam.training.ticketservice,Application,8,0,0,0,3,0,2,0,2,0
-ticket-service,com.epam.training.ticketservice.core.configuration,DatabaseInitializer,31,0,2,0,7,0,2,0,1,0
+ticket-service,com.epam.training.ticketservice.core.configuration,PersistentDatabaseInitializer,31,0,2,0,7,0,2,0,1,0
+ticket-service,com.epam.training.ticketservice.core.configuration,InMemoryDatabaseInitializer,31,0,2,0,7,0,2,0,1,0
 ticket-service,com.epam.training.ticketservice.core.movie.persistence.entity,Movie,0,12,0,0,0,5,0,1,0,1
 ticket-service,com.epam.training.ticketservice.core.finance,PriceCalculatorServiceImpl,0,101,0,8,0,23,0,5,0,1
 ticket-service,com.epam.training.ticketservice.core.user,UserServiceImpl,0,52,0,2,0,12,0,5,0,4

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RoomDto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ticket-service</a> &gt; <a href="index.source.html" class="el_package">com.epam.training.ticketservice.core.room.model</a> &gt; <span class="el_source">RoomDto.java</span></div><h1>RoomDto.java</h1><pre class="source lang-java linenums">package com.epam.training.ticketservice.core.room.model;
+
+import com.epam.training.ticketservice.core.seat.model.Seat;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@AllArgsConstructor
+@Data
+public class RoomDto {
+
+    private String name;
+
+    private Integer numberOfRows;
+
+    private Integer numberOfCols;
+
+    public boolean doesSeatExistInRoom(Seat seat) {
+<span class="fc bfc" id="L18" title="All 2 branches covered.">        return seat.getRowNumber() &gt; 0</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">                &amp;&amp; seat.getColumnNumber() &gt; 0</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">                &amp;&amp; seat.getRowNumber() &lt;= numberOfRows</span>
+<span class="pc bpc" id="L21" title="1 of 2 branches missed.">                &amp;&amp; seat.getColumnNumber() &lt;= numberOfCols;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L26">        return &quot;Room &quot; + name + &quot; with &quot; + numberOfRows * numberOfCols + &quot; seats, &quot;</span>
+                + numberOfRows + &quot; rows and &quot; + numberOfCols + &quot; columns&quot;;
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

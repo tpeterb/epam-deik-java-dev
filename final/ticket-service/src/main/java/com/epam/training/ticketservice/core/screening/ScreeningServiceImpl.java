@@ -30,14 +30,13 @@ public class ScreeningServiceImpl implements ScreeningService {
     private final RoomService roomService;
 
     @Override
-    public String createScreening(ScreeningDto screeningDto) {
+    public void createScreening(ScreeningDto screeningDto) {
         Screening screening = new Screening(
                 screeningDto.getMovieTitle(),
                 screeningDto.getRoomName(),
                 screeningDto.getStartOfScreening()
         );
         screeningRepository.save(screening);
-        return "Screening successfully created!";
     }
 
     @Override

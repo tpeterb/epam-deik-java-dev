@@ -37,7 +37,7 @@ public class UserCommand {
         if (userDto.isEmpty()) {
             return "You need to log in first!";
         }
-        return userDto.get() + "is logged out.";
+        return userDto.get() + " is logged out.";
     }
 
     @ShellMethod(key = "describe account")

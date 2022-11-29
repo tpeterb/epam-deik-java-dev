@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MovieServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ticket-service</a> &gt; <a href="index.source.html" class="el_package">com.epam.training.ticketservice.core.movie</a> &gt; <span class="el_source">MovieServiceImpl.java</span></div><h1>MovieServiceImpl.java</h1><pre class="source lang-java linenums">package com.epam.training.ticketservice.core.movie;
+
+import com.epam.training.ticketservice.core.movie.model.MovieDto;
+import com.epam.training.ticketservice.core.movie.persistence.entity.Movie;
+import com.epam.training.ticketservice.core.movie.persistence.repository.MovieRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Service
+@AllArgsConstructor
+public class MovieServiceImpl implements MovieService {
+
+    private final MovieRepository movieRepository;
+
+    @Override
+    public void createMovie(MovieDto movieDto) {
+<span class="fc" id="L21">        Movie movie = new Movie(</span>
+<span class="fc" id="L22">                movieDto.getTitle(),</span>
+<span class="fc" id="L23">                movieDto.getGenre(),</span>
+<span class="fc" id="L24">                movieDto.getLengthInMinutes()</span>
+        );
+<span class="fc" id="L26">        movieRepository.save(movie);</span>
+<span class="fc" id="L27">    }</span>
+
+    @Override
+    public void updateMovie(MovieDto movieDto) {
+<span class="fc" id="L31">        Optional&lt;Movie&gt; movie = movieRepository.findByTitle(movieDto.getTitle());</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if (movie.isPresent()) {</span>
+<span class="fc" id="L33">            Optional&lt;Movie&gt; movieToUpdate = movieRepository.findById(movie.get().getId());</span>
+<span class="fc" id="L34">            Movie movieValueToUpdate = movieToUpdate.get();</span>
+<span class="fc" id="L35">            movieValueToUpdate.setGenre(movieDto.getGenre());</span>
+<span class="fc" id="L36">            movieValueToUpdate.setLengthInMinutes(movieDto.getLengthInMinutes());</span>
+<span class="fc" id="L37">            movieRepository.save(movieValueToUpdate);</span>
+        }
+<span class="fc" id="L39">    }</span>
+
+    @Override
+    public void deleteMovie(String title) {
+<span class="fc" id="L43">        Optional&lt;Movie&gt; movie = movieRepository.findByTitle(title);</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        if (movie.isPresent()) {</span>
+<span class="fc" id="L45">            movieRepository.delete(movie.get());</span>
+        }
+<span class="fc" id="L47">    }</span>
+
+    @Override
+    public List&lt;MovieDto&gt; getMovieList() {
+<span class="fc" id="L51">        return movieRepository.findAll().stream()</span>
+<span class="fc" id="L52">                .map(this::convertEntityToDto)</span>
+<span class="fc" id="L53">                .collect(Collectors.toList());</span>
+    }
+
+    @Override
+    public Optional&lt;MovieDto&gt; getMovieByTitle(String movieTitle) {
+<span class="fc" id="L58">        Optional&lt;Movie&gt; movie = movieRepository.findByTitle(movieTitle);</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        if (movie.isPresent()) {</span>
+<span class="fc" id="L60">            return Optional.of(convertEntityToDto(movie.get()));</span>
+        }
+<span class="fc" id="L62">        return Optional.empty();</span>
+    }
+
+
+    private MovieDto convertEntityToDto(Movie movie) {
+<span class="fc" id="L67">        return new MovieDto(</span>
+<span class="fc" id="L68">                movie.getTitle(),</span>
+<span class="fc" id="L69">                movie.getGenre(),</span>
+<span class="fc" id="L70">                movie.getLengthInMinutes());</span>
+    }
+
+    private Movie convertDtoToEntity(MovieDto movieDto) {
+<span class="nc" id="L74">        return new Movie(</span>
+<span class="nc" id="L75">                movieDto.getTitle(),</span>
+<span class="nc" id="L76">                movieDto.getGenre(),</span>
+<span class="nc" id="L77">                movieDto.getLengthInMinutes()</span>
+        );
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

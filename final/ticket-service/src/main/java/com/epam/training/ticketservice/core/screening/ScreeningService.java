@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface ScreeningService {
 
-    String createScreening(ScreeningDto screeningDto);
+    void createScreening(ScreeningDto screeningDto);
 
     void deleteScreening(ScreeningDto screeningDto);
 

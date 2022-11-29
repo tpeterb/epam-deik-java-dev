@@ -1,0 +1,8 @@
+com\epam\training\ticketservice\core\booking\BookingServiceImplTest.class
+com\epam\training\ticketservice\core\movie\MovieServiceImplTest.class
+com\epam\training\ticketservice\core\screening\ScreeningServiceImplTest.class
+com\epam\training\ticketservice\core\user\UserServiceImplTest.class
+com\epam\training\ticketservice\core\finance\pricecomponent\PriceComponentServiceImplTest.class
+com\epam\training\ticketservice\core\room\model\RoomDtoTest.class
+com\epam\training\ticketservice\core\room\RoomServiceImplTest.class
+com\epam\training\ticketservice\core\finance\PriceCalculatorServiceImplTest.class

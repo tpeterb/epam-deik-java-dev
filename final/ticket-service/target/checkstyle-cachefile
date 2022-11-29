@@ -1,18 +1,18 @@
-#Tue Nov 22 10:05:19 CET 2022
+#Sun Nov 27 12:07:11 CET 2022
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\finance\\PriceCalculatorServiceImpl.java=1669106388882
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\movie\\MovieServiceImpl.java=1669030163070
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\room\\model\\RoomDto.java=1669032364856
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\finance\\pricecomponent\\persistence\\entity\\PriceComponent.java=1669106388871
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\ui\\command\\RoomCommand.java=1669032277008
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\seat\\model\\Seat.java=1669105548927
-O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\user\\model\\UserDto.java=1668250111541
+O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\user\\model\\UserDto.java=1669485444972
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\resources\\application.properties=1668790141902
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\room\\RoomService.java=1668711740804
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\ui\\configuration\\PromptConfiguration.java=1668158228247
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\screening\\model\\ScreeningDto.java=1669032690573
-O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\screening\\ScreeningService.java=1669105118967
+O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\screening\\ScreeningService.java=1669140577691
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\Application.java=1668087310032
-O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\screening\\ScreeningServiceImpl.java=1669106430998
+O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\screening\\ScreeningServiceImpl.java=1669140542607
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\ui\\command\\PriceCommand.java=1669107851981
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\finance\\pricecomponent\\PriceComponentService.java=1669106388768
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\ui\\command\\ScreeningCommand.java=1669105794390
@@ -24,7 +24,7 @@ O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-servi
 configuration*?=FA3E7389523464D260177F16D781741C32C1E7FA
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\movie\\MovieService.java=1669032797648
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\screening\\persistence\\repository\\ScreeningRepository.java=1669105498274
-O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\booking\\BookingServiceImpl.java=1669104370717
+O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\booking\\BookingServiceImpl.java=1669487410969
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\finance\\pricecomponent\\model\\PriceComponentDto.java=1669106388815
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\room\\RoomServiceImpl.java=1668951056204
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\finance\\pricecomponent\\PriceComponentServiceImpl.java=1669106388864
@@ -34,7 +34,7 @@ O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-servi
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\booking\\persistence\\repository\\BookingRepository.java=1669104609055
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\configuration\\DatabaseInitializer.java=1669106388877
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\user\\UserServiceImpl.java=1668250715356
-O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\ui\\command\\BookingCommand.java=1669105643967
+O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\ui\\command\\BookingCommand.java=1669394731515
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\movie\\model\\MovieDto.java=1669031456301
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\ui\\command\\MovieCommand.java=1669042130123
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\movie\\persistence\\entity\\Movie.java=1669105036369
@@ -44,4 +44,4 @@ O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-servi
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\room\\persistence\\entity\\Room.java=1669105075843
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\finance\\pricecomponent\\persistence\\repository\\PriceComponentRepository.java=1669106388849
 O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\core\\movie\\persistence\\repository\\MovieRepository.java=1668773960812
-O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\ui\\command\\UserCommand.java=1669106470934
+O\:\\T\u00F3th\ P\u00E9ter\ Bal\u00E1zs\\epam-deik-java-dev\\final\\ticket-service\\src\\main\\java\\com\\epam\\training\\ticketservice\\ui\\command\\UserCommand.java=1669485403384

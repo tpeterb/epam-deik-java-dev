@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PriceCalculatorServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ticket-service</a> &gt; <a href="index.source.html" class="el_package">com.epam.training.ticketservice.core.finance</a> &gt; <span class="el_source">PriceCalculatorServiceImpl.java</span></div><h1>PriceCalculatorServiceImpl.java</h1><pre class="source lang-java linenums">package com.epam.training.ticketservice.core.finance;
+
+import com.epam.training.ticketservice.core.booking.model.BookingDto;
+import com.epam.training.ticketservice.core.finance.pricecomponent.PriceComponentService;
+import com.epam.training.ticketservice.core.finance.pricecomponent.model.PriceComponentDto;
+import com.epam.training.ticketservice.core.screening.model.ScreeningDto;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@AllArgsConstructor
+public class PriceCalculatorServiceImpl implements PriceCalculatorService {
+
+    private final PriceComponentService priceComponentService;
+
+    @Override
+    @Transactional
+    public int calculateBookingPrice(BookingDto bookingDto) {
+<span class="fc" id="L23">        List&lt;PriceComponentDto&gt; priceComponentsForMovie = priceComponentService.getPriceComponentsByMovie(</span>
+<span class="fc" id="L24">                        bookingDto.getMovieTitle()</span>
+        );
+<span class="fc" id="L26">        List&lt;PriceComponentDto&gt; priceComponentsForRoom = priceComponentService.getPriceComponentsByRoom(</span>
+<span class="fc" id="L27">                bookingDto.getRoomName()</span>
+        );
+<span class="fc" id="L29">        List&lt;PriceComponentDto&gt; priceComponentsForScreening = priceComponentService.getPriceComponentsByScreening(</span>
+                new ScreeningDto(
+<span class="fc" id="L31">                    bookingDto.getMovieTitle(),</span>
+<span class="fc" id="L32">                    bookingDto.getRoomName(),</span>
+<span class="fc" id="L33">                    bookingDto.getStartOfScreening()</span>
+        ));
+<span class="fc" id="L35">        Optional&lt;PriceComponentDto&gt; basePriceComponent = priceComponentService.getBasePriceComponent();</span>
+<span class="fc" id="L36">        int numberOfSeatsBooked = bookingDto.getBookedSeats().size();</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        if (basePriceComponent.isPresent()) {</span>
+<span class="fc" id="L38">            int priceComponentSumPerSeat = 0;</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">            for (var priceComponent : priceComponentsForMovie) {</span>
+<span class="fc" id="L40">                priceComponentSumPerSeat += priceComponent.getAmount();</span>
+<span class="fc" id="L41">            }</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">            for (var priceComponent : priceComponentsForRoom) {</span>
+<span class="fc" id="L43">                priceComponentSumPerSeat += priceComponent.getAmount();</span>
+<span class="fc" id="L44">            }</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">            for (var priceComponent : priceComponentsForScreening) {</span>
+<span class="fc" id="L46">                priceComponentSumPerSeat += priceComponent.getAmount();</span>
+<span class="fc" id="L47">            }</span>
+<span class="fc" id="L48">            return (basePriceComponent.get().getAmount() + priceComponentSumPerSeat) * numberOfSeatsBooked;</span>
+        }
+<span class="fc" id="L50">        return -1;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -28,17 +28,15 @@ public class BookingServiceImpl implements BookingService {
     @Override
     public void createBooking(BookingDto bookingDto) {
         Optional<User> user = userRepository.findByUsername(userService.describe().get().getUsername());
-        if (user.isPresent()) {
-            Booking booking = new Booking(
-                    bookingDto.getMovieTitle(),
-                    bookingDto.getRoomName(),
-                    bookingDto.getStartOfScreening(),
-                    bookingDto.getPrice(),
-                    bookingDto.getBookedSeats(),
-                    user.get()
-            );
-            bookingRepository.save(booking);
-        }
+        Booking booking = new Booking(
+                bookingDto.getMovieTitle(),
+                bookingDto.getRoomName(),
+                bookingDto.getStartOfScreening(),
+                bookingDto.getPrice(),
+                bookingDto.getBookedSeats(),
+                user.get()
+        );
+        bookingRepository.save(booking);
     }
 
     @Override

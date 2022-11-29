@@ -10,4 +10,9 @@ public class UserDto {
 
     private final User.Role role;
 
+    @Override
+    public String toString() {
+        return "User '" + username + "' with role " + role;
+    }
+
 }

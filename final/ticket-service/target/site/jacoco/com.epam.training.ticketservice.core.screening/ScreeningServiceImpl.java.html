@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ScreeningServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ticket-service</a> &gt; <a href="index.source.html" class="el_package">com.epam.training.ticketservice.core.screening</a> &gt; <span class="el_source">ScreeningServiceImpl.java</span></div><h1>ScreeningServiceImpl.java</h1><pre class="source lang-java linenums">package com.epam.training.ticketservice.core.screening;
+
+import com.epam.training.ticketservice.core.movie.MovieService;
+import com.epam.training.ticketservice.core.movie.model.MovieDto;
+import com.epam.training.ticketservice.core.movie.persistence.entity.Movie;
+import com.epam.training.ticketservice.core.movie.persistence.repository.MovieRepository;
+import com.epam.training.ticketservice.core.room.RoomService;
+import com.epam.training.ticketservice.core.room.model.RoomDto;
+import com.epam.training.ticketservice.core.room.persistence.entity.Room;
+import com.epam.training.ticketservice.core.room.persistence.repository.RoomRepository;
+import com.epam.training.ticketservice.core.screening.model.ScreeningDto;
+import com.epam.training.ticketservice.core.screening.persistence.entity.Screening;
+import com.epam.training.ticketservice.core.screening.persistence.repository.ScreeningRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Service
+@AllArgsConstructor
+public class ScreeningServiceImpl implements ScreeningService {
+
+    private final ScreeningRepository screeningRepository;
+
+    private final MovieService movieService;
+
+    private final RoomService roomService;
+
+    @Override
+    public void createScreening(ScreeningDto screeningDto) {
+<span class="fc" id="L34">        Screening screening = new Screening(</span>
+<span class="fc" id="L35">                screeningDto.getMovieTitle(),</span>
+<span class="fc" id="L36">                screeningDto.getRoomName(),</span>
+<span class="fc" id="L37">                screeningDto.getStartOfScreening()</span>
+        );
+<span class="fc" id="L39">        screeningRepository.save(screening);</span>
+<span class="fc" id="L40">    }</span>
+
+    @Override
+    public void deleteScreening(ScreeningDto screeningDto) {
+<span class="fc" id="L44">        Optional&lt;Screening&gt; screening = screeningRepository.findByMovieTitleAndRoomNameAndStartOfScreening(</span>
+<span class="fc" id="L45">                        screeningDto.getMovieTitle(),</span>
+<span class="fc" id="L46">                        screeningDto.getRoomName(),</span>
+<span class="fc" id="L47">                        screeningDto.getStartOfScreening()</span>
+                );
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        if (screening.isPresent()) {</span>
+<span class="fc" id="L50">            screeningRepository.delete(screening.get());</span>
+        }
+<span class="fc" id="L52">    }</span>
+
+    @Override
+    public List&lt;ScreeningDto&gt; getScreeningList() {
+<span class="fc" id="L56">        return screeningRepository.findAll().stream()</span>
+<span class="fc" id="L57">                .map(this::convertEntityToDto)</span>
+<span class="fc" id="L58">                .collect(Collectors.toList());</span>
+    }
+
+    @Override
+    public List&lt;ScreeningDto&gt; getScreeningListByRoom(String roomName) {
+<span class="fc" id="L63">        List&lt;Screening&gt; screenings = screeningRepository.findByRoomName(roomName);</span>
+<span class="fc" id="L64">        List&lt;ScreeningDto&gt; roomScreenings = screenings.stream()</span>
+<span class="fc" id="L65">                .map(this::convertEntityToDto)</span>
+<span class="fc" id="L66">                .collect(Collectors.toList());</span>
+<span class="fc" id="L67">        return roomScreenings;</span>
+    }
+
+    @Override
+    public Optional&lt;ScreeningDto&gt; getScreeningByMovieTitleAndRoomNameAndStartOfScreening(
+            String movieTitle,
+            String roomName,
+            LocalDateTime startOfScreening) {
+<span class="fc" id="L75">        Optional&lt;Screening&gt; screening = screeningRepository.findByMovieTitleAndRoomNameAndStartOfScreening(</span>
+                movieTitle,
+                roomName,
+                startOfScreening);
+<span class="fc bfc" id="L79" title="All 2 branches covered.">        if (screening.isPresent()) {</span>
+<span class="fc" id="L80">            return Optional.of(new ScreeningDto(</span>
+<span class="fc" id="L81">                    screening.get().getMovieTitle(),</span>
+<span class="fc" id="L82">                    screening.get().getRoomName(),</span>
+<span class="fc" id="L83">                    screening.get().getStartOfScreening()));</span>
+        }
+<span class="fc" id="L85">        return Optional.empty();</span>
+    }
+
+    @Override
+    public boolean areScreeningsColliding(ScreeningDto screeningDto1, ScreeningDto screeningDto2) {
+<span class="fc" id="L90">        LocalDateTime screeningDto1StartOfScreening = screeningDto1.getStartOfScreening();</span>
+<span class="fc" id="L91">        LocalDateTime screeningDto2StartOfScreening = screeningDto2.getStartOfScreening();</span>
+<span class="fc" id="L92">        Optional&lt;MovieDto&gt; movie1 = movieService.getMovieByTitle(screeningDto1.getMovieTitle());</span>
+<span class="fc" id="L93">        Optional&lt;MovieDto&gt; movie2 = movieService.getMovieByTitle(screeningDto2.getMovieTitle());</span>
+<span class="fc" id="L94">        Optional&lt;RoomDto&gt; room1 = roomService.getRoomByName(screeningDto1.getRoomName());</span>
+<span class="fc" id="L95">        Optional&lt;RoomDto&gt; room2 = roomService.getRoomByName(screeningDto2.getRoomName());</span>
+<span class="pc bpc" id="L96" title="2 of 8 branches missed.">        if (movie1.isEmpty() || movie2.isEmpty() || room1.isEmpty() || room2.isEmpty()) {</span>
+<span class="fc" id="L97">            return false;</span>
+        }
+<span class="fc bfc" id="L99" title="All 2 branches covered.">        if (!room1.get().getName().equals(room2.get().getName())) {</span>
+<span class="fc" id="L100">            return false;</span>
+        }
+<span class="fc" id="L102">        int movie1LengthInMinutes = movie1.get().getLengthInMinutes();</span>
+<span class="fc" id="L103">        int movie2LengthInMinutes = movie2.get().getLengthInMinutes();</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">        if ((screeningDto1StartOfScreening.isBefore(</span>
+<span class="fc" id="L105">                screeningDto2StartOfScreening.plusMinutes(movie2LengthInMinutes))</span>
+<span class="pc bpc" id="L106" title="1 of 2 branches missed.">            &amp;&amp; screeningDto1StartOfScreening.plusMinutes(movie1LengthInMinutes).isAfter(</span>
+                    screeningDto2StartOfScreening))
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">            || (screeningDto2StartOfScreening.isBefore(</span>
+<span class="fc" id="L109">                    screeningDto1StartOfScreening.plusMinutes(movie1LengthInMinutes))</span>
+<span class="pc bpc" id="L110" title="1 of 2 branches missed.">                &amp;&amp; screeningDto2StartOfScreening.plusMinutes(movie2LengthInMinutes).isAfter(</span>
+                        screeningDto1StartOfScreening))) {
+<span class="fc" id="L112">            return true;</span>
+        }
+<span class="fc" id="L114">        return false;</span>
+    }
+
+    @Override
+    public boolean isScreeningCollidingWithTenMinutesBreakPeriod(
+            ScreeningDto screeningDtoWithBreakAfter,
+            ScreeningDto screeningDtoWhichMightFallInBreakPeriod) {
+<span class="fc" id="L121">        LocalDateTime screeningWithBreakAfterStartOfScreening = screeningDtoWithBreakAfter.getStartOfScreening();</span>
+<span class="fc" id="L122">        LocalDateTime screeningWhichMightFallInBreakPeriodStartOfScreening =</span>
+<span class="fc" id="L123">                screeningDtoWhichMightFallInBreakPeriod.getStartOfScreening();</span>
+<span class="fc" id="L124">        Optional&lt;MovieDto&gt; movieWithBreakAfter = movieService.getMovieByTitle(</span>
+<span class="fc" id="L125">                screeningDtoWithBreakAfter.getMovieTitle());</span>
+<span class="fc" id="L126">        Optional&lt;MovieDto&gt; movieWhichMightFallInBreakPeriod = movieService.getMovieByTitle(</span>
+<span class="fc" id="L127">                screeningDtoWhichMightFallInBreakPeriod.getMovieTitle());</span>
+<span class="fc" id="L128">        Optional&lt;RoomDto&gt; roomWithBreakAfter = roomService.getRoomByName(screeningDtoWithBreakAfter.getRoomName());</span>
+<span class="fc" id="L129">        Optional&lt;RoomDto&gt; roomWhichMightFallInBreakPeriod = roomService.getRoomByName(</span>
+<span class="fc" id="L130">                screeningDtoWhichMightFallInBreakPeriod.getRoomName());</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">        if (movieWithBreakAfter.isEmpty()</span>
+<span class="pc bpc" id="L132" title="1 of 2 branches missed.">                || movieWhichMightFallInBreakPeriod.isEmpty()</span>
+<span class="pc bpc" id="L133" title="1 of 2 branches missed.">                || roomWithBreakAfter.isEmpty()</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">                || roomWhichMightFallInBreakPeriod.isEmpty()) {</span>
+<span class="fc" id="L135">            return false;</span>
+        }
+<span class="fc bfc" id="L137" title="All 2 branches covered.">        if (!roomWithBreakAfter.get().getName().equals(</span>
+<span class="fc" id="L138">                roomWhichMightFallInBreakPeriod.get().getName())) {</span>
+<span class="fc" id="L139">            return false;</span>
+        }
+<span class="fc" id="L141">        int movieWithBreakAfterLengthInMinutes = movieWithBreakAfter.get().getLengthInMinutes();</span>
+<span class="fc" id="L142">        int movieWhichMightFallInBreakPeriodLengthInMinutes =</span>
+<span class="fc" id="L143">                movieWhichMightFallInBreakPeriod.get().getLengthInMinutes();</span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">        if (screeningWhichMightFallInBreakPeriodStartOfScreening.isBefore(</span>
+<span class="fc" id="L145">                screeningWithBreakAfterStartOfScreening.plusMinutes(</span>
+<span class="fc" id="L146">                        movieWithBreakAfterLengthInMinutes).plusMinutes(10)</span>
+<span class="fc" id="L147">        ) &amp;&amp; screeningWhichMightFallInBreakPeriodStartOfScreening.plusMinutes(</span>
+<span class="pc bpc" id="L148" title="1 of 2 branches missed.">                movieWhichMightFallInBreakPeriodLengthInMinutes).isAfter(</span>
+<span class="fc" id="L149">                screeningWithBreakAfterStartOfScreening.plusMinutes(movieWithBreakAfterLengthInMinutes)</span>
+        )) {
+<span class="fc" id="L151">            return true;</span>
+        }
+<span class="fc" id="L153">        return false;</span>
+    }
+
+    private ScreeningDto convertEntityToDto(Screening screening) {
+<span class="fc" id="L157">        return new ScreeningDto(</span>
+<span class="fc" id="L158">                screening.getMovieTitle(),</span>
+<span class="fc" id="L159">                screening.getRoomName(),</span>
+<span class="fc" id="L160">                screening.getStartOfScreening()</span>
+        );
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PriceComponentServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ticket-service</a> &gt; <a href="index.source.html" class="el_package">com.epam.training.ticketservice.core.finance.pricecomponent</a> &gt; <span class="el_source">PriceComponentServiceImpl.java</span></div><h1>PriceComponentServiceImpl.java</h1><pre class="source lang-java linenums">package com.epam.training.ticketservice.core.finance.pricecomponent;
+
+import com.epam.training.ticketservice.core.finance.pricecomponent.model.PriceComponentDto;
+import com.epam.training.ticketservice.core.finance.pricecomponent.persistence.entity.PriceComponent;
+import com.epam.training.ticketservice.core.finance.pricecomponent.persistence.repository.PriceComponentRepository;
+import com.epam.training.ticketservice.core.movie.persistence.entity.Movie;
+import com.epam.training.ticketservice.core.movie.persistence.repository.MovieRepository;
+import com.epam.training.ticketservice.core.room.persistence.entity.Room;
+import com.epam.training.ticketservice.core.room.persistence.repository.RoomRepository;
+import com.epam.training.ticketservice.core.screening.model.ScreeningDto;
+import com.epam.training.ticketservice.core.screening.persistence.entity.Screening;
+import com.epam.training.ticketservice.core.screening.persistence.repository.ScreeningRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@AllArgsConstructor
+public class PriceComponentServiceImpl implements PriceComponentService {
+
+    private final PriceComponentRepository priceComponentRepository;
+
+    private final RoomRepository roomRepository;
+
+    private final MovieRepository movieRepository;
+
+    private final ScreeningRepository screeningRepository;
+
+    @Override
+    public void createPriceComponent(PriceComponentDto priceComponentDto) {
+<span class="fc" id="L35">        PriceComponent priceComponent = new PriceComponent(</span>
+<span class="fc" id="L36">                priceComponentDto.getName(),</span>
+<span class="fc" id="L37">                priceComponentDto.getAmount()</span>
+        );
+<span class="fc" id="L39">        priceComponentRepository.save(priceComponent);</span>
+<span class="fc" id="L40">    }</span>
+
+    @Override
+    public Optional&lt;PriceComponentDto&gt; getPriceComponentByName(String priceComponentName) {
+<span class="fc" id="L44">        Optional&lt;PriceComponent&gt; priceComponent = priceComponentRepository.findByName(priceComponentName);</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        if (priceComponent.isPresent()) {</span>
+<span class="fc" id="L46">            return Optional.of(convertFromEntityToDto(priceComponent.get()));</span>
+        }
+<span class="fc" id="L48">        return Optional.empty();</span>
+    }
+
+    @Override
+    public Optional&lt;PriceComponentDto&gt; getBasePriceComponent() {
+<span class="fc" id="L53">        Optional&lt;PriceComponent&gt; basePriceComponent = priceComponentRepository.findByName(&quot;BasePriceComponent&quot;);</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        if (basePriceComponent.isPresent()) {</span>
+<span class="fc" id="L55">            return Optional.of(convertFromEntityToDto(basePriceComponent.get()));</span>
+        }
+<span class="fc" id="L57">        return Optional.empty();</span>
+    }
+
+    @Override
+    public List&lt;PriceComponentDto&gt; getPriceComponentsByMovie(String movieTitle) {
+<span class="fc" id="L62">        List&lt;PriceComponentDto&gt; priceComponentDtosToReturn = new ArrayList&lt;PriceComponentDto&gt;();</span>
+<span class="fc" id="L63">        List&lt;PriceComponent&gt; priceComponents = priceComponentRepository.findAll();</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        for (var priceComponent : priceComponents) {</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">            for (var movie : priceComponent.getMovies()) {</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">                if (movie.getTitle().equals(movieTitle)) {</span>
+<span class="fc" id="L67">                    priceComponentDtosToReturn.add(new PriceComponentDto(</span>
+<span class="fc" id="L68">                            priceComponent.getName(),</span>
+<span class="fc" id="L69">                            priceComponent.getAmount()</span>
+                    ));
+<span class="fc" id="L71">                    break;</span>
+                }
+<span class="fc" id="L73">            }</span>
+<span class="fc" id="L74">        }</span>
+<span class="fc" id="L75">        return priceComponentDtosToReturn;</span>
+    }
+
+    @Override
+    public List&lt;PriceComponentDto&gt; getPriceComponentsByRoom(String roomName) {
+<span class="fc" id="L80">        List&lt;PriceComponentDto&gt; priceComponentDtosToReturn = new ArrayList&lt;PriceComponentDto&gt;();</span>
+<span class="fc" id="L81">        List&lt;PriceComponent&gt; priceComponents = priceComponentRepository.findAll();</span>
+<span class="fc bfc" id="L82" title="All 2 branches covered.">        for (var priceComponent : priceComponents) {</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">            for (var room : priceComponent.getRooms()) {</span>
+<span class="fc bfc" id="L84" title="All 2 branches covered.">                if (room.getName().equals(roomName)) {</span>
+<span class="fc" id="L85">                    priceComponentDtosToReturn.add(new PriceComponentDto(</span>
+<span class="fc" id="L86">                            priceComponent.getName(),</span>
+<span class="fc" id="L87">                            priceComponent.getAmount()</span>
+                    ));
+                }
+<span class="fc" id="L90">            }</span>
+<span class="fc" id="L91">        }</span>
+<span class="fc" id="L92">        return priceComponentDtosToReturn;</span>
+    }
+
+    @Override
+    public List&lt;PriceComponentDto&gt; getPriceComponentsByScreening(ScreeningDto screeningDto) {
+<span class="fc" id="L97">        List&lt;PriceComponentDto&gt; priceComponentDtosToReturn = new ArrayList&lt;PriceComponentDto&gt;();</span>
+<span class="fc" id="L98">        List&lt;PriceComponent&gt; priceComponents = priceComponentRepository.findAll();</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">        for (var priceComponent : priceComponents) {</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">            for (var screening : priceComponent.getScreenings()) {</span>
+<span class="fc" id="L101">                ScreeningDto tempScreeningDto = new ScreeningDto(</span>
+<span class="fc" id="L102">                        screening.getMovieTitle(),</span>
+<span class="fc" id="L103">                        screening.getRoomName(),</span>
+<span class="fc" id="L104">                        screening.getStartOfScreening()</span>
+                );
+<span class="fc bfc" id="L106" title="All 2 branches covered.">                if (tempScreeningDto.equals(screeningDto)) {</span>
+<span class="fc" id="L107">                    priceComponentDtosToReturn.add(new PriceComponentDto(</span>
+<span class="fc" id="L108">                            priceComponent.getName(),</span>
+<span class="fc" id="L109">                            priceComponent.getAmount()</span>
+                    ));
+                }
+<span class="fc" id="L112">            }</span>
+<span class="fc" id="L113">        }</span>
+<span class="fc" id="L114">        return priceComponentDtosToReturn;</span>
+    }
+
+    @Override
+    public void updateBasePriceComponent(Integer newBasePrice) {
+<span class="fc" id="L119">        Optional&lt;PriceComponent&gt; basePriceComponent = priceComponentRepository.findByName(&quot;BasePriceComponent&quot;);</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">        if (basePriceComponent.isPresent()) {</span>
+<span class="fc" id="L121">            Optional&lt;PriceComponent&gt; basePrice = priceComponentRepository.findById(basePriceComponent.get().getId());</span>
+<span class="fc bfc" id="L122" title="All 2 branches covered.">            if (newBasePrice &gt;= 0) {</span>
+<span class="fc" id="L123">                basePrice.get().setAmount(newBasePrice);</span>
+<span class="fc" id="L124">                priceComponentRepository.save(basePrice.get());</span>
+            }
+        }
+<span class="fc" id="L127">    }</span>
+
+    @Override
+    @Transactional
+    public void addPriceComponentToRoom(PriceComponentDto priceComponentDto, String roomName) {
+<span class="fc" id="L132">        Optional&lt;PriceComponent&gt; priceComponent = priceComponentRepository.findByName(priceComponentDto.getName());</span>
+<span class="fc" id="L133">        Optional&lt;Room&gt; room = roomRepository.findByName(roomName);</span>
+<span class="pc bpc" id="L134" title="1 of 4 branches missed.">        if (priceComponent.isPresent() &amp;&amp; room.isPresent()) {</span>
+<span class="fc" id="L135">            priceComponent.get().getRooms().add(room.get());</span>
+        }
+<span class="fc" id="L137">    }</span>
+
+    @Override
+    @Transactional
+    public void addPriceComponentToMovie(PriceComponentDto priceComponentDto, String movieTitle) {
+<span class="fc" id="L142">        Optional&lt;PriceComponent&gt; priceComponent = priceComponentRepository.findByName(priceComponentDto.getName());</span>
+<span class="fc" id="L143">        Optional&lt;Movie&gt; movie = movieRepository.findByTitle(movieTitle);</span>
+<span class="pc bpc" id="L144" title="1 of 4 branches missed.">        if (priceComponent.isPresent() &amp;&amp; movie.isPresent()) {</span>
+<span class="fc" id="L145">            priceComponent.get().getMovies().add(movie.get());</span>
+        }
+<span class="fc" id="L147">    }</span>
+
+    @Override
+    @Transactional
+    public void addPriceComponentToScreening(PriceComponentDto priceComponentDto, ScreeningDto screeningDto) {
+<span class="fc" id="L152">        Optional&lt;PriceComponent&gt; priceComponent = priceComponentRepository.findByName(priceComponentDto.getName());</span>
+<span class="fc" id="L153">        Optional&lt;Screening&gt; screening = screeningRepository.findByMovieTitleAndRoomNameAndStartOfScreening(</span>
+<span class="fc" id="L154">                screeningDto.getMovieTitle(),</span>
+<span class="fc" id="L155">                screeningDto.getRoomName(),</span>
+<span class="fc" id="L156">                screeningDto.getStartOfScreening()</span>
+        );
+<span class="pc bpc" id="L158" title="1 of 4 branches missed.">        if (priceComponent.isPresent() &amp;&amp; screening.isPresent()) {</span>
+<span class="fc" id="L159">            priceComponent.get().getScreenings().add(screening.get());</span>
+        }
+<span class="fc" id="L161">    }</span>
+
+    private PriceComponentDto convertFromEntityToDto(PriceComponent priceComponent) {
+<span class="fc" id="L164">        return new PriceComponentDto(</span>
+<span class="fc" id="L165">                priceComponent.getName(),</span>
+<span class="fc" id="L166">                priceComponent.getAmount()</span>
+        );
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

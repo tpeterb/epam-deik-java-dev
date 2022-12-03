@@ -1,5 +1,6 @@
 package com.epam.training.ticketservice.core.room.persistence.entity;
 
+import com.epam.training.ticketservice.core.finance.pricecomponent.persistence.entity.PriceComponent;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

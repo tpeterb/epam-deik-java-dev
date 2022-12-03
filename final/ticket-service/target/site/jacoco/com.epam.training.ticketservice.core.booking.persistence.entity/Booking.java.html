@@ -6,14 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.OneToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Column;
+import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -25,6 +27,7 @@ public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = &quot;booking_id&quot;)
     private Integer id;
 
     private String movieTitle;
@@ -46,14 +49,14 @@ public class Booking {
                    LocalDateTime startOfScreening,
                    Integer price,
                    List&lt;Seat&gt; bookedSeats,
-<span class="fc" id="L49">                   User user) {</span>
-<span class="fc" id="L50">        this.movieTitle = movieTitle;</span>
-<span class="fc" id="L51">        this.roomName = roomName;</span>
-<span class="fc" id="L52">        this.startOfScreening = startOfScreening;</span>
-<span class="fc" id="L53">        this.price = price;</span>
-<span class="fc" id="L54">        this.bookedSeats = bookedSeats;</span>
-<span class="fc" id="L55">        this.user = user;</span>
-<span class="fc" id="L56">    }</span>
+<span class="fc" id="L52">                   User user) {</span>
+<span class="fc" id="L53">        this.movieTitle = movieTitle;</span>
+<span class="fc" id="L54">        this.roomName = roomName;</span>
+<span class="fc" id="L55">        this.startOfScreening = startOfScreening;</span>
+<span class="fc" id="L56">        this.price = price;</span>
+<span class="fc" id="L57">        this.bookedSeats = bookedSeats;</span>
+<span class="fc" id="L58">        this.user = user;</span>
+<span class="fc" id="L59">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

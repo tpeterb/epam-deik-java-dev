@@ -15,10 +15,10 @@ public class RoomDto {
     private Integer numberOfCols;
 
     public boolean doesSeatExistInRoom(Seat seat) {
-<span class="fc bfc" id="L18" title="All 2 branches covered.">        return seat.getRowNumber() &gt; 0</span>
-<span class="fc bfc" id="L19" title="All 2 branches covered.">                &amp;&amp; seat.getColumnNumber() &gt; 0</span>
-<span class="fc bfc" id="L20" title="All 2 branches covered.">                &amp;&amp; seat.getRowNumber() &lt;= numberOfRows</span>
-<span class="pc bpc" id="L21" title="1 of 2 branches missed.">                &amp;&amp; seat.getColumnNumber() &lt;= numberOfCols;</span>
+<span class="fc bfc" id="L18" title="All 2 branches covered.">        return seat.getRowsNumber() &gt; 0</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">                &amp;&amp; seat.getColumnsNumber() &gt; 0</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">                &amp;&amp; seat.getRowsNumber() &lt;= numberOfRows</span>
+<span class="pc bpc" id="L21" title="1 of 2 branches missed.">                &amp;&amp; seat.getColumnsNumber() &lt;= numberOfCols;</span>
     }
 
     @Override

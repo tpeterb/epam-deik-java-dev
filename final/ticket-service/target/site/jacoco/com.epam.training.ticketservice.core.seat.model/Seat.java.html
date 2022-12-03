@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Seat.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ticket-service</a> &gt; <a href="index.source.html" class="el_package">com.epam.training.ticketservice.core.seat.model</a> &gt; <span class="el_source">Seat.java</span></div><h1>Seat.java</h1><pre class="source lang-java linenums">package com.epam.training.ticketservice.core.seat.model;
 
+import com.epam.training.ticketservice.core.booking.persistence.entity.Booking;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -10,10 +11,11 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Column;
 import java.util.Objects;
 
 @Entity
-@Table(name = &quot;szek&quot;)
+@Table(name = &quot;szekek&quot;)
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -21,38 +23,39 @@ public class Seat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = &quot;seat_id&quot;)
     private Integer id;
 
-    private Integer rowNumber;
+    private Integer rowsNumber;
 
-    private Integer columnNumber;
+    private Integer columnsNumber;
 
-<span class="fc" id="L30">    public Seat(Integer rowNumber, Integer columnNumber) {</span>
-<span class="fc" id="L31">        this.rowNumber = rowNumber;</span>
-<span class="fc" id="L32">        this.columnNumber = columnNumber;</span>
-<span class="fc" id="L33">    }</span>
+<span class="fc" id="L33">    public Seat(Integer rowNumber, Integer columnNumber) {</span>
+<span class="fc" id="L34">        this.rowsNumber = rowNumber;</span>
+<span class="fc" id="L35">        this.columnsNumber = columnNumber;</span>
+<span class="fc" id="L36">    }</span>
 
     @Override
     public boolean equals(Object o) {
-<span class="nc bnc" id="L37" title="All 2 branches missed.">        if (this == o) {</span>
-<span class="nc" id="L38">            return true;</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (this == o) {</span>
+<span class="nc" id="L41">            return true;</span>
         }
-<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (!(o instanceof Seat)) {</span>
-<span class="nc" id="L41">            return false;</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        if (!(o instanceof Seat)) {</span>
+<span class="nc" id="L44">            return false;</span>
         }
-<span class="nc" id="L43">        Seat other = (Seat)o;</span>
-<span class="nc bnc" id="L44" title="All 4 branches missed.">        return this.rowNumber == other.getRowNumber()</span>
-                &amp;&amp; this.columnNumber == other.columnNumber;
+<span class="nc" id="L46">        Seat other = (Seat)o;</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        return this.rowsNumber == other.getRowsNumber()</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">                &amp;&amp; this.columnsNumber == other.getColumnsNumber();</span>
     }
 
     @Override
     public int hashCode() {
-<span class="nc" id="L50">        return Objects.hash(rowNumber, columnNumber);</span>
+<span class="nc" id="L53">        return Objects.hash(rowsNumber, columnsNumber);</span>
     }
 
     @Override
     public String toString() {
-<span class="fc" id="L55">        return &quot;(&quot; + rowNumber + &quot;,&quot; + columnNumber + &quot;)&quot;;</span>
+<span class="fc" id="L58">        return &quot;(&quot; + rowsNumber + &quot;,&quot; + columnsNumber + &quot;)&quot;;</span>
     }
 
 }

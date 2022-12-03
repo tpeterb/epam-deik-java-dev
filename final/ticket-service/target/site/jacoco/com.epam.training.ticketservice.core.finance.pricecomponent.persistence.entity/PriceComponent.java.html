@@ -9,14 +9,15 @@ import lombok.NoArgsConstructor;
 
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
 import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import java.util.Set;
 
 @Entity
@@ -44,10 +45,10 @@ public class PriceComponent {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set&lt;Screening&gt; screenings;
 
-<span class="fc" id="L47">    public PriceComponent(String name, Integer amount) {</span>
-<span class="fc" id="L48">        this.name = name;</span>
-<span class="fc" id="L49">        this.amount = amount;</span>
-<span class="fc" id="L50">    }</span>
+<span class="fc" id="L48">    public PriceComponent(String name, Integer amount) {</span>
+<span class="fc" id="L49">        this.name = name;</span>
+<span class="fc" id="L50">        this.amount = amount;</span>
+<span class="fc" id="L51">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

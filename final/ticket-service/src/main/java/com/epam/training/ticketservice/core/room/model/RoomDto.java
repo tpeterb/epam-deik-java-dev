@@ -15,10 +15,10 @@ public class RoomDto {
     private Integer numberOfCols;
 
     public boolean doesSeatExistInRoom(Seat seat) {
-        return seat.getRowNumber() > 0
-                && seat.getColumnNumber() > 0
-                && seat.getRowNumber() <= numberOfRows
-                && seat.getColumnNumber() <= numberOfCols;
+        return seat.getRowsNumber() > 0
+                && seat.getColumnsNumber() > 0
+                && seat.getRowsNumber() <= numberOfRows
+                && seat.getColumnsNumber() <= numberOfCols;
     }
 
     @Override
